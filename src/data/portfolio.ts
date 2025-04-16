@@ -91,7 +91,7 @@ const portfolioData = {
   "education": [
     {
       "degree": "B.E. Computer Science & Engineering",
-      "institute": "Gynanamani College of Technology",
+      "institute": "Gnyanamani College of Technology",
       "location": "Namakkal, Tamil Nadu",
       "duration": "2018 – 2022"
     },
