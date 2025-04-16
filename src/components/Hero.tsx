@@ -2,11 +2,13 @@
 import { useEffect, useState } from "react";
 import portfolioData from "../data/portfolio";
 import { ExternalLink, Download, ArrowRight } from "lucide-react";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 const Hero = () => {
-  const { name, title, hero_section, contact } = portfolioData;
+  const { name, title, hero_section, contact, profile_picture } = portfolioData;
   const [displayText, setDisplayText] = useState("");
   const [isTypingComplete, setIsTypingComplete] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   useEffect(() => {
     let currentIndex = 0;
@@ -42,6 +44,15 @@ const Hero = () => {
       default:
         break;
     }
+  };
+
+  const handleImageLoad = () => {
+    setImageLoaded(true);
+    console.log("Profile image loaded successfully");
+  };
+
+  const handleImageError = () => {
+    console.error("Failed to load profile image from", profile_picture.url);
   };
 
   return (
@@ -87,13 +98,17 @@ const Hero = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-neon-blue to-neon-purple rounded-full blur-xl opacity-20 animate-pulse-glow"></div>
               <div className="profile-image overflow-hidden border-4 border-neon-purple/50 w-64 h-64 sm:w-80 sm:h-80">
                 <img 
-                  src="/images/gokul-profile.jpg" 
-                  alt={portfolioData.profile_picture.alt}
-                  onError={(e) => {
-                    e.currentTarget.src = "https://via.placeholder.com/400x400.png?text=Gokul+Prakash";
-                  }}
-                  className="w-full h-full object-cover"
+                  src={profile_picture.url}
+                  alt={profile_picture.alt}
+                  onLoad={handleImageLoad}
+                  onError={handleImageError}
+                  className={`w-full h-full object-cover transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
                 />
+                {!imageLoaded && (
+                  <div className="absolute inset-0 flex items-center justify-center bg-muted text-muted-foreground">
+                    {name.split(' ').map(part => part[0]).join('')}
+                  </div>
+                )}
               </div>
               <div className="absolute inset-0 rounded-full shadow-[0_0_40px_rgba(114,9,183,0.3)] animate-pulse-glow"></div>
             </div>
