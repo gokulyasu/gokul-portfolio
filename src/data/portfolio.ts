@@ -24,7 +24,7 @@ const portfolioData = {
     "bio": "SAP Full Stack Developer with nearly 3 years of experience in ABAP, UI5, and OData. I build enterprise solutions with clean logic and design aesthetics.",
     "fun_facts": [
       "Loves debugging more than sleeping(most days..)",
-      "Can write ABAP and UI5 at the same time - ture multitasker",
+      "Can write ABAP and UI5 at the same time - true multitasker",
       "Dark mode is not a preference. it's personality",
       "Still believes console.log() is the best therapist",
       "Uses semicolons properly - even in life decisions",
