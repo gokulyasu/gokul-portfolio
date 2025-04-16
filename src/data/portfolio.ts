@@ -4,8 +4,8 @@ const portfolioData = {
   "title": "SAP Full Stack Developer",
   "location": "Paramathi Velur, Namakkal, Tamil Nadu – 638182",
   "profile_picture": {
-    "url": "/images/gokul-profile.jpg",
-    "alt": "Gokul Prakash smiling",
+    "url": "/lovable-uploads/8bdc9c7f-4d3d-45c2-b15a-0e2080f018ad.png",
+    "alt": "Gokul Prakash professional headshot",
     "style": "circle crop, glowing neon border, zoom on load, tilt on hover"
   },
   "contact": {
