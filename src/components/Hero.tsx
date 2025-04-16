@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import portfolioData from "../data/portfolio";
 import { ExternalLink, Download, ArrowRight } from "lucide-react";
@@ -121,24 +120,6 @@ const Hero = () => {
                 {!imageLoaded && (
                   <div className="absolute inset-0 flex items-center justify-center bg-muted text-muted-foreground">
                     {name.split(' ').map(part => part[0]).join('')}
-                  </div>
-                )}
-                
-                {/* Animated dots/particles on hover */}
-                {imageHovered && (
-                  <div className="absolute inset-0 z-20 overflow-hidden">
-                    {[...Array(8)].map((_, i) => (
-                      <div 
-                        key={i}
-                        className="absolute w-2 h-2 rounded-full bg-neon-pink/80"
-                        style={{
-                          top: `${Math.random() * 100}%`,
-                          left: `${Math.random() * 100}%`,
-                          animation: `float ${3 + i * 0.2}s ease-in-out infinite`,
-                          animationDelay: `${i * 0.1}s`
-                        }}
-                      ></div>
-                    ))}
                   </div>
                 )}
               </div>
