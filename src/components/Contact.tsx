@@ -128,14 +128,14 @@ const Contact = () => {
             </div>
             
             {/* Quote Widget */}
-            <div className="glass-card rounded-xl p-6 relative overflow-hidden">
+            {/* <div className="glass-card rounded-xl p-6 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-20 h-20 bg-neon-purple/20 rounded-full blur-xl"></div>
               <h3 className="text-xl font-bold mb-4">Random Quote</h3>
               
               <blockquote className="italic text-muted-foreground">
                 "{portfolioData.extras.quote_rotation[Math.floor(Math.random() * portfolioData.extras.quote_rotation.length)]}"
               </blockquote>
-            </div>
+            </div> */}
           </div>
           
           <div>
