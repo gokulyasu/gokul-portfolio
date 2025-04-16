@@ -57,22 +57,27 @@ const portfolioData = {
   ],
   "projects": [
     {
+      "name": "Driver Assignment & Approval Workflow for Invoices",
+      "tech_stack": ["ABAP", "SAP UI5", "ODATA", "Custom Workflow","BAPI"],
+      "description": "Streamlines driver assignments, faciliates approval processess, integrates with SAP systems, and captures driver remarks post-delivery"
+    },
+    {
       "name": "Warehouse Management",
       "tech_stack": ["ABAP", "SAP UI5", "ODATA"],
       "description": "Dynamic ordering UI using UI5 components and OData for real-time warehouse control."
     },
     {
       "name": "Asset Management",
-      "tech_stack": ["ABAP", "SAP UI5", "ODATA"],
+      "tech_stack": ["ABAP", "SAP UI5", "ODATA","Custom Workflow","BAPI"],
       "description": "Full asset lifecycle app with data services and custom frontend views."
     },
     {
       "name": "Project System",
-      "tech_stack": ["ABAP", "SAP UI5", "ODATA"],
+      "tech_stack": ["ABAP", "SAP UI5", "ODATA","Custom Workflow","BAPI"],
       "description": "Delivered part ordering dashboard with class-based OData architecture."
     },
     {
-      "name": "Material Management",
+      "name": "Client's Store",
       "tech_stack": ["ABAP", "BAPI", "Google Matrix API"],
       "description": "Generated PDF freight order reports and integrated Google API for logistics."
     },
