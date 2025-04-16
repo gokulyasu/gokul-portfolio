@@ -9,6 +9,7 @@ const Hero = () => {
   const [displayText, setDisplayText] = useState("");
   const [isTypingComplete, setIsTypingComplete] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
+  const [imageHovered, setImageHovered] = useState(false);
 
   useEffect(() => {
     let currentIndex = 0;
@@ -94,23 +95,61 @@ const Hero = () => {
           </div>
           
           <div className="w-full lg:w-2/5 flex justify-center lg:justify-end animate-fade-in opacity-0" style={{ animationDelay: "0.5s" }}>
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-neon-blue to-neon-purple rounded-full blur-xl opacity-20 animate-pulse-glow"></div>
-              <div className="profile-image overflow-hidden border-4 border-neon-purple/50 w-64 h-64 sm:w-80 sm:h-80">
+            <div 
+              className="relative"
+              onMouseEnter={() => setImageHovered(true)}
+              onMouseLeave={() => setImageHovered(false)}
+            >
+              {/* Background glow effect */}
+              <div className={`absolute inset-0 bg-gradient-to-r from-neon-blue to-neon-purple rounded-full blur-xl opacity-20 animate-pulse-glow transition-all duration-500 ${imageHovered ? 'scale-110 opacity-30' : ''}`}></div>
+              
+              {/* Profile image container */}
+              <div className={`profile-image overflow-hidden border-4 border-neon-purple/50 w-64 h-64 sm:w-80 sm:h-80 transition-all duration-500 ${imageHovered ? 'rotate-3 scale-105' : ''}`}>
+                {/* Color overlay on hover */}
+                <div className={`absolute inset-0 bg-gradient-to-tr from-neon-blue/30 to-neon-purple/30 z-10 transition-opacity duration-300 ${imageHovered ? 'opacity-70' : 'opacity-0'}`}></div>
+                
+                {/* Profile image */}
                 <img 
                   src={profile_picture.url}
                   alt={profile_picture.alt}
                   onLoad={handleImageLoad}
                   onError={handleImageError}
-                  className={`w-full h-full object-cover transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+                  className={`w-full h-full object-cover transition-all duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'} ${imageHovered ? 'scale-110 rotate-3' : ''}`}
                 />
+                
+                {/* Image loading fallback */}
                 {!imageLoaded && (
                   <div className="absolute inset-0 flex items-center justify-center bg-muted text-muted-foreground">
                     {name.split(' ').map(part => part[0]).join('')}
                   </div>
                 )}
+                
+                {/* Animated dots/particles on hover */}
+                {imageHovered && (
+                  <div className="absolute inset-0 z-20 overflow-hidden">
+                    {[...Array(8)].map((_, i) => (
+                      <div 
+                        key={i}
+                        className="absolute w-2 h-2 rounded-full bg-neon-pink/80"
+                        style={{
+                          top: `${Math.random() * 100}%`,
+                          left: `${Math.random() * 100}%`,
+                          animation: `float ${3 + i * 0.2}s ease-in-out infinite`,
+                          animationDelay: `${i * 0.1}s`
+                        }}
+                      ></div>
+                    ))}
+                  </div>
+                )}
               </div>
-              <div className="absolute inset-0 rounded-full shadow-[0_0_40px_rgba(114,9,183,0.3)] animate-pulse-glow"></div>
+              
+              {/* Outer glow effect */}
+              <div className={`absolute inset-0 rounded-full shadow-[0_0_40px_rgba(114,9,183,0.3)] animate-pulse-glow transition-all duration-500 ${imageHovered ? 'shadow-[0_0_60px_rgba(114,9,183,0.5)]' : ''}`}></div>
+              
+              {/* Interactive elements that appear on hover */}
+              <div className={`absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-neon-purple/80 text-white px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${imageHovered ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+                {name}
+              </div>
             </div>
           </div>
         </div>
