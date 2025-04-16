@@ -4,98 +4,196 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
+    /* Light mode */
+    --background: 240 20% 98%;
+    --foreground: 240 10% 3.9%;
+    
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
+    --card-foreground: 240 10% 3.9%;
+    
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
+    --popover-foreground: 240 10% 3.9%;
+    
+    --primary: 262 83% 58%;
+    --primary-foreground: 0 0% 98%;
+    
+    --secondary: 240 5.9% 90%;
+    --secondary-foreground: 240 5.9% 10%;
+    
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    
+    --accent: 224 76% 48%;
+    --accent-foreground: 0 0% 98%;
+    
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    
+    --radius: 0.75rem;
+    
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
+    /* Dark mode - Cyberpunk theme */
+    --background: 244 30% 6%;
     --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
+    
+    --card: 240 25% 8%;
+    --card-foreground: 0 0% 98%;
+    
+    --popover: 240 25% 8%;
+    --popover-foreground: 0 0% 98%;
+    
+    --primary: 262 83% 58%;
+    --primary-foreground: 0 0% 98%;
+    
+    --secondary: 240 20% 12%;
+    --secondary-foreground: 0 0% 98%;
+    
+    --muted: 240 20% 12%;
+    --muted-foreground: 240 10% 70%;
+    
+    --accent: 224 76% 48%;
+    --accent-foreground: 0 0% 98%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 240 20% 20%;
+    --input: 240 20% 12%;
+    --ring: 240 10% 70%;
+    
+    --sidebar-background: 240 25% 8%;
+    --sidebar-foreground: 240 10% 90%;
+    --sidebar-primary: 224 76% 48%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 240 20% 12%;
+    --sidebar-accent-foreground: 240 10% 90%;
+    --sidebar-border: 240 20% 16%;
+    --sidebar-ring: 224 76% 48%;
   }
 }
 
 @layer base {
   * {
     @apply border-border;
+    scroll-behavior: smooth;
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground dark:bg-cyber-dark;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
   }
+}
+
+@layer utilities {
+  .text-shadow-glow {
+    text-shadow: 0 0 5px var(--tw-shadow-color), 
+                 0 0 20px var(--tw-shadow-color);
+  }
+  
+  .text-gradient-primary {
+    @apply bg-gradient-to-r from-neon-blue via-neon-purple to-neon-pink bg-clip-text text-transparent;
+  }
+  
+  .text-gradient-secondary {
+    @apply bg-gradient-to-r from-neon-green via-neon-blue to-neon-purple bg-clip-text text-transparent;
+  }
+  
+  .bg-grid {
+    background-image: 
+      linear-gradient(to right, rgba(67, 97, 238, 0.1) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(67, 97, 238, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+  
+  .bg-radial {
+    background: radial-gradient(circle at center, rgba(67, 97, 238, 0.2) 0%, transparent 70%);
+  }
+  
+  .glass {
+    @apply bg-white/10 backdrop-blur-lg border border-white/20 dark:bg-black/20 dark:border-white/10;
+  }
+  
+  .glass-card {
+    @apply bg-white/20 backdrop-blur-xl border border-white/30 shadow-xl dark:bg-black/30 dark:border-white/10 dark:shadow-black/30;
+  }
+  
+  .neon-border {
+    @apply border border-neon-blue shadow-[0_0_10px_rgba(67,97,238,0.5),0_0_20px_rgba(67,97,238,0.3)];
+  }
+  
+  .neon-border-purple {
+    @apply border border-neon-purple shadow-[0_0_10px_rgba(114,9,183,0.5),0_0_20px_rgba(114,9,183,0.3)];
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .typing-container {
+    @apply relative overflow-hidden whitespace-nowrap border-r-4 border-neon-blue;
+    animation: typing 3.5s steps(30, end), blink 0.75s step-end infinite;
+  }
+}
+
+/* Additional custom styles */
+.profile-image {
+  @apply rounded-full shadow-lg transition-all duration-500 ease-out;
+}
+
+.profile-image:hover {
+  @apply shadow-[0_0_20px_rgba(67,97,238,0.6),0_0_40px_rgba(67,97,238,0.4)];
+  transform: scale(1.05) rotate(3deg);
+}
+
+.card-hover {
+  @apply transition-all duration-300 ease-out;
+}
+
+.card-hover:hover {
+  @apply transform -translate-y-2 shadow-[0_10px_20px_rgba(0,0,0,0.2)];
+}
+
+.btn-cyberpunk {
+  @apply relative overflow-hidden px-6 py-3 rounded-md font-medium transition-all duration-300 bg-neon-blue text-white shadow-[0_0_15px_rgba(67,97,238,0.5)];
+}
+
+.btn-cyberpunk:hover {
+  @apply shadow-[0_0_20px_rgba(67,97,238,0.8)];
+}
+
+.btn-cyberpunk::before {
+  content: '';
+  @apply absolute top-0 left-0 w-full h-full bg-white opacity-0 transition-opacity duration-300;
+}
+
+.btn-cyberpunk:hover::before {
+  @apply opacity-20;
+}
+
+.btn-cyberpunk::after {
+  content: '';
+  @apply absolute top-1/2 left-1/2 w-5 h-5 rounded-full bg-white -translate-x-1/2 -translate-y-1/2 opacity-0 transition-all duration-500;
+}
+
+.btn-cyberpunk:active::after {
+  @apply opacity-30 scale-[10];
 }
