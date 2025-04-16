@@ -1,7 +1,9 @@
 
 import { useEffect, useRef } from "react";
 import portfolioData from "../data/portfolio";
-import { Sparkles, Code, Coffee, Building } from "lucide-react";
+import { BookCopy, BugPlay, Sparkles, Code, Coffee, Building, MoonStar, SquareChevronRight, DoorOpen } from "lucide-react";
+
+
 
 const About = () => {
   const { about_me, location } = portfolioData;
@@ -33,17 +35,22 @@ const About = () => {
   }, []);
 
   const getIconForFact = (factText: string) => {
-    if (factText.toLowerCase().includes("anime")) return <Sparkles className="w-5 h-5 text-neon-pink" />;
+
+    if (factText.toLowerCase().includes("debug")) return <BugPlay className="w-5 h-5 text-neon-blue" />;
+    if (factText.toLowerCase().includes("multitasker")) return <BookCopy className="w-5 h-5 text-neon-pink" />;
+    if (factText.toLowerCase().includes("dark")) return <MoonStar className="w-5 h-5 text-neon-purple" />;
+    if (factText.toLowerCase().includes("console")) return <SquareChevronRight className="w-5 h-5 text-neon-pink" />;
     if (factText.toLowerCase().includes("debug")) return <Code className="w-5 h-5 text-neon-blue" />;
-    if (factText.toLowerCase().includes("chai") || factText.toLowerCase().includes("coffee")) 
+    if (factText.toLowerCase().includes("room")) return <DoorOpen className="w-5 h-5 text-neon-blue" />;
+    if (factText.toLowerCase().includes("chai") || factText.toLowerCase().includes("coffee"))
       return <Coffee className="w-5 h-5 text-neon-green" />;
     if (factText.toLowerCase().includes("architecture")) return <Building className="w-5 h-5 text-neon-purple" />;
     return <Sparkles className="w-5 h-5 text-neon-yellow" />;
   };
 
   return (
-    <section 
-      id="about" 
+    <section
+      id="about"
       ref={sectionRef}
       className="py-20 px-4 relative opacity-0"
     >
@@ -68,7 +75,7 @@ const About = () => {
             <h3 className="text-xl font-semibold mb-4">Fun Facts</h3>
             <ul className="space-y-4">
               {about_me.fun_facts.map((fact, index) => (
-                <li 
+                <li
                   key={index}
                   ref={el => factRefs.current[index] = el}
                   className="flex items-start gap-3 opacity-0"

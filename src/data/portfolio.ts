@@ -2,7 +2,7 @@
 const portfolioData = {
   "name": "Gokul Prakash",
   "title": "SAP Full Stack Developer",
-  "location": "Paramathi Velur, Namakkal, Tamil Nadu – 638182",
+  "location": "Coimbatore, Tamil Nadu",
   "profile_picture": {
     "url": "/lovable-uploads/8bdc9c7f-4d3d-45c2-b15a-0e2080f018ad.png",
     "alt": "Gokul Prakash professional headshot",
@@ -23,10 +23,13 @@ const portfolioData = {
   "about_me": {
     "bio": "SAP Full Stack Developer with nearly 3 years of experience in ABAP, UI5, and OData. I build enterprise solutions with clean logic and design aesthetics.",
     "fun_facts": [
-      "Anime fan (Naruto & Ben 10)",
-      "Debugging is my superpower",
-      "Chai > Coffee",
-      "Practicing clean architecture"
+      "Loves debugging more than sleeping(most days..)",
+      "Can write ABAP and UI5 at the same time - ture multitasker",
+      "Dark mode is not a preference. it's personality",
+      "Still believes console.log() is the best therapist",
+      "Uses semicolons properly - even in life decisions",
+      "Writes cleaner code than my room"
+
     ]
   },
   "experience": [
@@ -83,7 +86,7 @@ const portfolioData = {
     "languages": ["ABAP", "Java", "JavaScript", "SQL", "HTML", "CSS"],
     "frameworks": ["SAP UI5", "OData", "REST APIs"],
     "tools": ["SAP GUI", "Web IDE", "VS Code", "Eclipse"],
-    "concepts": ["Fiori Integration", "Gateway Services", "Dialog Programming", "OO ALV", "Advanced Debugging", "MVC Architecture"]
+    "concepts": ["Fiori Integration", "Gateway Services", "Advanced Debugging", "MVC Architecture"]
   },
   "education": [
     {
@@ -116,7 +119,7 @@ const portfolioData = {
     "light_dark_toggle": true,
     "quote_rotation": [
       "Write once. Debug forever.",
-      "Believe it! – Naruto",
+      "Believe it!",
       "Console.log is my therapist.",
       "Legacy code is just code without parents."
     ],
